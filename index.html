@@ -1,0 +1,76 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Canopeo</title>   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Canopeo</title>
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/all.css" />
+    <!-- <link type="text/css"  href="css/custom_css.css/" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="./classifier_attempt.js"></script>
+
+</head>
+
+<style>
+#stubble_label #soil_label #canopy_label{
+    font-size: calc(10px + 5vw) !important;
+}
+
+.result_label{
+    font-size: calc(10px + 5vw)!important;
+}
+
+
+</style>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">Kora js app</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="">coming soon</a></li>
+            <li><a href="">coming soon <span class="new badge">4</span></a></li>
+            <li><a href="">coming soon</a></li>
+          </ul>
+        </div>
+      </nav>
+
+
+     <div class="container"> 
+  
+
+        <div class = "row file-field input-field">
+            <div class = "btn">
+               <span>Upload</span>
+               <input id="filePhoto" onchange="readURL(this)" type="file" />
+            </div>
+        </div>
+        
+        <br><br>
+
+        <div class="result_values row">
+            <div class="result_label col l4 m4 s4"><label>Stubble :</label><label id="stubble_label"></label></div>
+            <div class="result_label col l4 m4 s4"><label>Soil :</label><label id="soil_label"></label></div>
+            <div class="result_label col l4 m4 s4"><label>Canopy :</label><label id="canopy_label"></label></div>
+        </div>
+        
+        <div class="row">
+      
+            <div class="col l6 m12 s12"> <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" /> </div>
+            <div id="result_div" class="col l6 m12 s12"></div>
+          </div>
+        
+           
+        
+   </div> 
+  
+    </body>
+
+
