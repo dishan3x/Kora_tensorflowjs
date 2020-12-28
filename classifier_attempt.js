@@ -18,7 +18,7 @@ $( document ).ready(function() {
 });
 
 
- async function readURL(input) {
+ async function uploadImage(input) {
 
     if (input.files && input.files[0]) {
         var reader = new FileReader();
