@@ -13,7 +13,7 @@ $( document ).ready(function() {
         kk =  readURL(this);
         
     }); */
-
+    $(".result_values").hide();
 
 });
 
@@ -217,7 +217,7 @@ async function predict() {
 
     // View the original image holder
     document.getElementById("previewHolder").style.display = "block";
-
+    $(".result_values").show();
 
 }
 

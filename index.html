@@ -50,7 +50,26 @@
 
 }
 
-</style>
+#upload_btn_wrapper_div{
+    float:none;
+}
+
+/* .container {
+
+    display: -ms-flexbox;
+    display: flex;
+
+    top: 10%;
+    left: 25%;
+    position: absolute;
+
+    box-sizing: border-box;
+
+} */
+
+/* .job-view p { display : block; overflow-wrap: break-word; max-width : 100%;}
+ */
+ </style>
 
 <body>
 <!--     <nav>
@@ -63,18 +82,26 @@
           </ul>
         </div>
       </nav> -->
+              <!-- header and button class -->
+              <div class="header_wrapper center-align">
+
+                <div class="row">
+                    <h1 id="heading" ><i>Kora</i></h1>
+                <p class="job-view"> Web app quanitying soil, plant, and residue coverusing convolutional neural networks </p>
+                </div>
+                    <div class = "row file-field input-field ">
+                        <div id="upload_btn_wrapper_div" class = "btn center-align">
+                            <span>Upload</span>
+                            <input id="filePhoto" onchange="uploadImage(this)" type="file" />
+                        </div>
+                    </div>
+                </div>
 
 
      <div class="container"> 
   
 
-        <div class = "row file-field input-field">
-            <div class = "btn">
-               <span>Upload</span>
-               <input id="filePhoto" onchange="uploadImage(this)" type="file" />
-            </div>
-        </div>
-        
+
         <br><br>
 
         <div class="result_values row">
@@ -90,8 +117,9 @@
         </div>
         
         <div class="row">
-      
+            <!-- original image -->
             <div class="col l6 m12 s12"> <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" /> </div>
+            <!-- classified image-->
             <div id="result_div" class="col l6 m12 s12"></div>
           </div>
         
