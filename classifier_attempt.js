@@ -158,30 +158,37 @@ async function predict() {
     var per_stubble = 0;
     var per_soil = 0;
     var per_canopy = 0;
+    console.log("counts array",counts);
 
+    // stubble 
     if(counts.hasOwnProperty(0)){
         sum_count = sum_count + counts[0]; 
         per_stubble =  counts[0]; 
         console.log("1 is here");
     }
+
+    // soil 
     if(counts.hasOwnProperty(1)){
         console.log("2 is here");
         per_soil = counts[1];
         sum_count = sum_count + counts[1]; 
     }
+
+    // Canopy
     if(counts.hasOwnProperty(2)){
         console.log("3 is here");
-        per_soil = counts[2];
+        per_canopy = counts[2];
         sum_count = sum_count + counts[2]; 
     }
 
+    console.log("per_stubble",per_canopy);
     per_stubble = (per_stubble/sum_count)*100;
     per_canopy  = (per_canopy/sum_count)*100;
     per_soil = (per_soil/sum_count)*100;
 
-    console.log(per_stubble);
-    console.log(per_soil);
-    console.log(per_canopy);
+    console.log("stubble",per_stubble);
+    console.log("stubble",per_soil);
+    console.log("stubble",per_canopy);
 
     document.getElementById('stubble_label').textContent = per_stubble.toFixed(2);
     document.getElementById('soil_label').textContent = per_soil.toFixed(2);
