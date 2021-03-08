@@ -12,9 +12,9 @@
     <!-- <link type="text/css"  href="css/custom_css.css/" /> -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
     <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
-    <script src="./classifier_attempt.js"></script>
+    
 
 </head>
 
@@ -104,7 +104,7 @@
 
         <br><br>
 
-        <div class="result_values row">
+        <div id="result_values" class="result_values row">
             <div class="result_label col l4 m4 s4">
                 <div id="stubble_box" class="color-box"></div>
                     <label class="result_text">Stubble :</label><label id="stubble_label"  class="result_text"></label></div>
@@ -128,5 +128,7 @@
    </div> 
   
     </body>
+
+    <script src="./classifier_attempt.js"></script>
 
 

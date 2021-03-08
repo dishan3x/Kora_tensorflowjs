@@ -6,16 +6,13 @@ async function initialize() {
     model = await tf.loadLayersModel('https://raw.githubusercontent.com/dishan3x/Kora_tensorflowjs/main/models/tensoflowJSmodel/model.json');
 }
 
-$( document ).ready(function() {
 
-
-   /*  $("#filePhoto").change(function() {
-        kk =  readURL(this);
-        
-    }); */
-    $(".result_values").hide();
-
-});
+(function() {
+  
+    document.getElementById("result_values").style.display= "none";
+  
+ 
+ })();
 
 
  async function uploadImage(input) {
@@ -26,7 +23,8 @@ $( document ).ready(function() {
             //console.log(e.target.result);
             //result = resizeBase64Img(e.target.result.split(",")[1],512,512)
             //console.log(result);
-            $('#previewHolder').attr('src', e.target.result); 
+            //$('#previewHolder').attr('src', e.target.result); 
+            document.getElementById("previewHolder").setAttribute("src",e.target.result);
             //predict();
         }
 
@@ -34,11 +32,12 @@ $( document ).ready(function() {
         reader.readAsDataURL(input.files[0]);
         // triger the predict function after the image loaded
         reader.onloadend = () => predict(); 
-        console.log("await");
+        /* console.log("await"); */
         //predict();
     } else {
         alert('select a file to see preview');
-        $('#previewHolder').attr('src', '');
+        //$('#previewHolder').attr('src', '');
+        document.getElementById("previewHolder").setAttribute("src",'');
     }
 
 
@@ -64,10 +63,9 @@ async function predict() {
     removePreviousResult();
     //context.clearRect(0, 0, canvas.width, canvas.height);
     // action for the submit button
-    console.log("starting");
+  
     const tensorImg = await tf.tidy(() => {
         let image_from_element = document.getElementById("previewHolder");
-    
         let tensorImg =   tf.browser.fromPixels(image_from_element).toFloat().expandDims();
         return tensorImg;
         
@@ -78,8 +76,8 @@ async function predict() {
     var results = await prediction.argMax(3).dataSync();
     tf.dispose(prediction);
 
-    console.info('Check memory is empty:');
-    console.log(tf.memory());
+    /* console.info('Check memory is empty:'); */
+   /*  console.log(tf.memory()); */
 
 
     //console.log(results);
@@ -146,7 +144,7 @@ async function predict() {
     var unique_items = unique(results) 
     
 
-    console.log("unit",unique_items);
+    /* console.log("unit",unique_items); */
 
 
     var counts = {};
@@ -158,37 +156,35 @@ async function predict() {
     var per_stubble = 0;
     var per_soil = 0;
     var per_canopy = 0;
-    console.log("counts array",counts);
+   /*  console.log("counts array",counts); */
 
     // stubble 
     if(counts.hasOwnProperty(0)){
         sum_count = sum_count + counts[0]; 
         per_stubble =  counts[0]; 
-        console.log("1 is here");
+       /*  console.log("1 is here"); */
     }
 
     // soil 
     if(counts.hasOwnProperty(1)){
-        console.log("2 is here");
+        /* console.log("2 is here"); */
         per_soil = counts[1];
         sum_count = sum_count + counts[1]; 
     }
 
     // Canopy
     if(counts.hasOwnProperty(2)){
-        console.log("3 is here");
+        /* console.log("3 is here"); */
         per_canopy = counts[2];
         sum_count = sum_count + counts[2]; 
     }
 
-    console.log("per_stubble",per_canopy);
+    /* console.log("per_stubble",per_canopy); */
     per_stubble = (per_stubble/sum_count)*100;
     per_canopy  = (per_canopy/sum_count)*100;
     per_soil = (per_soil/sum_count)*100;
 
-    console.log("stubble",per_stubble);
-    console.log("stubble",per_soil);
-    console.log("stubble",per_canopy);
+
 
     document.getElementById('stubble_label').textContent = per_stubble.toFixed(2);
     document.getElementById('soil_label').textContent = per_soil.toFixed(2);
@@ -204,7 +200,7 @@ async function predict() {
     {
           
     } */
-    console.log("counts",counts);
+   
     tf.dispose(results);
     // put the modified pixels back on the canvas
     ctx.putImageData(imgData, 0, 0);
@@ -224,20 +220,22 @@ async function predict() {
 
     // View the original image holder
     document.getElementById("previewHolder").style.display = "block";
-    $(".result_values").show();
+    
+    document.getElementById("result_values").style.display= "block";
+ 
 
 }
 
 function removePreviousResult(){
-    console.log("cant find");
+   
     var result_elm = document.getElementById("result_image");
 
     //If it isn't "undefined" and it isn't "null", then it exists.
     if(typeof(result_elm) != 'undefined' && result_elm != null){
         result_elm.remove();
-        console.log("result removed");
+       /*  console.log("result removed"); */
     } else{
-        console.log('Element does not exist!');
+        /* console.log('Element does not exist!'); */
        // result_elm.remove();
     }
 }
