@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="css/materialize.min.css" />
     <link rel="stylesheet" href="css/fontawesome/all.css" />
     <!-- <link type="text/css"  href="css/custom_css.css/" /> -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.3.0/dist/tf.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
    <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
@@ -69,6 +71,19 @@
 
 /* .job-view p { display : block; overflow-wrap: break-word; max-width : 100%;}
  */
+
+ .result_div{
+    display: table;
+}
+ 
+#result_image{
+    display: table-header-group;
+}
+
+#download_predicted_image{
+    display: table-footer-group;
+}
+
  </style>
 
 <body>
@@ -117,17 +132,24 @@
         </div>
         
         <div class="row">
-            <!-- original image -->
-            <div class="col l6 m12 s12"> <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" /> </div>
-            <!-- classified image-->
-            <div id="result_div" class="col l6 m12 s12"></div>
+            
+            <!-- original image colomn -->
+            <div class="col l6 m12 s12"> 
+                <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" />
+                <a  id="download_original_image" download="original_capture.png" href="data:image/png;base64,asdasd...">Download original image</a>
+            </div>
+
+            <!-- classified image coloumn-->
+            <div id="result_div" class="col l6 m12 s12"> 
+                <a  id="download_predicted_image" download="prediction.png" href="data:image/png;base64,asdasd...">Download predicted image</a>
+            </div>
           </div>
         
            
         
    </div> 
-  
-    </body>
+ <!--  <button type="button" onclick="downloadSomething()">Download original image</button> -->
+   </body>
 
     <script src="./classifier_attempt.js"></script>
 

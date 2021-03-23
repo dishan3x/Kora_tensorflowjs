@@ -10,8 +10,9 @@ async function initialize() {
 (function() {
   
     document.getElementById("result_values").style.display= "none";
-  
- 
+    document.getElementById("download_original_image").style.display= "none";
+    document.getElementById("download_predicted_image").style.display= "none";
+
  })();
 
 
@@ -25,6 +26,9 @@ async function initialize() {
             //console.log(result);
             //$('#previewHolder').attr('src', e.target.result); 
             document.getElementById("previewHolder").setAttribute("src",e.target.result);
+            // Try to get 
+            var original_image_tag = document.getElementById('download_original_image');
+            original_image_tag.href = e.target.result; 
             //predict();
         }
 
@@ -142,7 +146,7 @@ async function predict() {
 
     // unique groups available in picture
     var unique_items = unique(results) 
-    
+  
 
     /* console.log("unit",unique_items); */
 
@@ -211,17 +215,30 @@ async function predict() {
     var image = new Image();
     
     image.id = "result_image";
-    // set the img.src to the canvas data url
-    image.src = canvas.toDataURL();
+    // Attached canvas information to image tag
+    image.src = canvas.toDataURL();  
 
     // append the new img object to the page
     //document.body.appendChild(image);
     document.getElementById('result_div').append(image);
 
+
+    // Try to get 
+    var a = document.getElementById('download_predicted_image');
+    a.href = image.src;  
+
     // View the original image holder
     document.getElementById("previewHolder").style.display = "block";
     
+    // Show calculated values of canopy cover values
     document.getElementById("result_values").style.display= "block";
+
+    document.getElementById("result_div").style.display= "table";
+    // Downloadable button for preview image and generated image
+    document.getElementById("download_original_image").style.display= "block";
+    document.getElementById("download_predicted_image").style.display= "table-footer-group";
+
+    
  
 
 }
@@ -251,5 +268,22 @@ function unique(arr) {
     return result;
 }
 
+/* function downloadSomething(){
+   var image_constructed = document.getElementById('result_image');
+   console.log(image_constructed);
+  // var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+   var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+    window.open(url);
+
+}
+
+function downloadSomething(){
+    var image_constructed = document.getElementById('result_image');
+    console.log(image_constructed);
+   // var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+    var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+     window.open(url);
+ 
+ } */
 
 initialize();
