@@ -70,7 +70,7 @@ async function predict() {
   
     const tensorImg = await tf.tidy(() => {
         let image_from_element = document.getElementById("previewHolder");
-        let tensorImg =   tf.browser.fromPixels(image_from_element).toFloat().expandDims();
+        let tensorImg          =   tf.browser.fromPixels(image_from_element).toFloat().expandDims();
         return tensorImg;
         
     });
