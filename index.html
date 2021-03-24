@@ -26,7 +26,6 @@
     font-size: calc(3vw) !important;
 }
 
-
 .color-box {
     width: 5px;
     height: 3vw;
@@ -57,22 +56,6 @@
     float:none;
 }
 
-/* .container {
-
-    display: -ms-flexbox;
-    display: flex;
-
-    top: 10%;
-    left: 25%;
-    position: absolute;
-
-    box-sizing: border-box;
-
-} */
-
-/* .job-view p { display : block; overflow-wrap: break-word; max-width : 100%;}
- */
-
  .result_div{
     display: table;
 }
@@ -85,6 +68,50 @@
     display: table-footer-group;
 }
 
+/* small devices */
+@media ( max-width: 600px) {
+    .result_text{ 
+         font-size:calc(20px + 3vw) !important; 
+        text-align: center !important;
+    }
+
+    #result_values{
+        display:grid !important;
+    }
+/*     #navbar-toggler{
+        float: right;
+    } */
+
+    .result_label {
+        display:inline;
+    }
+   .row .col.s1 {
+     width: 100%;
+    margin-left: initial;
+    } 
+
+    .result_text_mini_screen {
+        display: block; 
+        font-size:calc(30px + 5vw) !important; 
+    }
+
+    .color-box {
+    width: 5px;
+    height: 6vw;
+    /*  display: inline-block;  */
+    left: 5px;
+    margin-right: 10px;
+    top: 5px;
+    border-style: solid;
+    border: thin;
+    }
+
+    #previewHolder, #result_image{
+        width:100%;
+    }
+   
+
+}
  </style>
 
 <body>
@@ -121,15 +148,15 @@
         <br><br>
 
         <div id="result_values" class="result_values row">
-            <div class="result_label col l4 m4 s4">
+            <div class="result_label col l4 m4 s1">
                 <div id="stubble_box" class="color-box"></div>
-                    <label class="result_text">Stubble :</label><label id="stubble_label"  class="result_text"></label></div>
-            <div class="result_label col l4 m4 s4">
+                    <label class="result_text">Stubble :</label><label id="stubble_label"  class="result_text result_text_mini_screen"></label></div>
+            <div class="result_label col l4 m4 s1">
                 <div id="soil_box" class="color-box"></div>
-                    <label class="result_text">Soil :</label><label id="soil_label"  class="result_text"></label></div>
-            <div class="result_label col l4 m4 s4">
+                    <label class="result_text">Soil :</label><label id="soil_label"  class="result_text result_text_mini_screen"></label></div>
+            <div class="result_label col l4 m4 s1">
                 <div id="canopy_box" class="color-box"></div>
-                    <label  class="result_text">Canopy :</label><label id="canopy_label"  class="result_text"></label></div>
+                    <label  class="result_text">Canopy :</label><label id="canopy_label"  class="result_text result_text_mini_screen"></label></div>
         </div>
         
         <div class="row">
