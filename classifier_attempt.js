@@ -21,23 +21,16 @@ async function initialize() {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload =  function(e) {
-            //console.log(e.target.result);
-            //result = resizeBase64Img(e.target.result.split(",")[1],512,512)
-            //console.log(result);
-            //$('#previewHolder').attr('src', e.target.result); 
             document.getElementById("previewHolder").setAttribute("src",e.target.result);
             // Try to get 
             var original_image_tag = document.getElementById('download_original_image');
             original_image_tag.href = e.target.result; 
-            //predict();
         }
 
         // Triggers the onload 
         reader.readAsDataURL(input.files[0]);
         // triger the predict function after the image loaded
         reader.onloadend = () => predict(); 
-        /* console.log("await"); */
-        //predict();
     } else {
         alert('select a file to see preview');
         //$('#previewHolder').attr('src', '');
@@ -47,19 +40,6 @@ async function initialize() {
 
 }
 
-/* function resizeBase64Img(base64, width, height) {
-    var canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
-    var context = canvas.getContext("2d");
-    var deferred = $.Deferred();
-    $("<img/>").attr("src", "data:image/gif;base64," + base64).load(function() {
-        context.scale(width/this.width,  height/this.height);
-        context.drawImage(this, 0, 0); 
-        deferred.resolve($("<img/>").attr("src", canvas.toDataURL()));               
-    });
-    return deferred.promise();    
-} */
 
 async function predict() {
    
@@ -80,18 +60,6 @@ async function predict() {
     var results = await prediction.argMax(3).dataSync();
     tf.dispose(prediction);
 
-    /* console.info('Check memory is empty:'); */
-   /*  console.log(tf.memory()); */
-
-
-    //console.log(results);
-    //console.log(results.shape);
-
-    //test_array = nj.arange(prediction.data).reshape(1,512,512,3);
-    //test_array = nj.array(results);
-    //let test_array = nj.arange(results).reshape(512,512);
-    //console.log(test_array.shape);
-
     // create an offscreen canvas
     var canvas = document.createElement("canvas");
     var ctx = canvas.getContext("2d");
@@ -104,13 +72,6 @@ async function predict() {
     var imgData = ctx.getImageData(0, 0, 512, 512);
     var data = imgData.data;
   
-
-    // manipulate some pixel elements
- /*    for (var i = 0; i < data.length; i += 4) {
-        data[i] = 255; // set every red pixel element to 255
-        data[i + 3] = 255; // make this pixel opaque
-    } */
-
     index = 0;
     counter = 0;
     for(let y=0; y < canvas.height; y++){
@@ -195,16 +156,6 @@ async function predict() {
     document.getElementById('canopy_label').textContent = per_canopy.toFixed(2);
 
 
-    
-
-
-
-
-  /*   for (int i : unique_items)
-    {
-          
-    } */
-   
     tf.dispose(results);
     // put the modified pixels back on the canvas
     ctx.putImageData(imgData, 0, 0);
@@ -268,22 +219,5 @@ function unique(arr) {
     return result;
 }
 
-/* function downloadSomething(){
-   var image_constructed = document.getElementById('result_image');
-   console.log(image_constructed);
-  // var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
-   var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
-    window.open(url);
-
-}
-
-function downloadSomething(){
-    var image_constructed = document.getElementById('result_image');
-    console.log(image_constructed);
-   // var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
-    var url = image_constructed.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
-     window.open(url);
- 
- } */
 
 initialize();
