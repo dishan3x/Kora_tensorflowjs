@@ -43,10 +43,9 @@ async function initialize() {
 
 async function predict() {
    
-    //document.getElementById("canvas").remove();
+   
     removePreviousResult();
-    //context.clearRect(0, 0, canvas.width, canvas.height);
-    // action for the submit button
+   
   
     const tensorImg = await tf.tidy(() => {
         let image_from_element = document.getElementById("previewHolder");
