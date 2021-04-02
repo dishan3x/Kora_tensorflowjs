@@ -116,69 +116,53 @@
  </style>
 
 <body>
-<!--     <nav>
-        <div class="nav-wrapper">
-          <a href="" class="brand-logo">Kora js app</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="">coming soon</a></li>
-            <li><a href="">coming soon <span class="new badge">4</span></a></li>
-            <li><a href="">coming soon</a></li>
-          </ul>
-        </div>
-      </nav> -->
-              <!-- header and button class -->
-              <div class="header_wrapper center-align">
 
-                <div class="row">
-                    <h1 id="heading" ><i>SRPNet</i></h1>
-                <p class="job-view"> Web app quanitying soil, plant, and residue cover using convolutional neural networks </p>
-                </div>
-                    <div class = "row file-field input-field ">
-                        <div id="upload_btn_wrapper_div" class = "btn center-align">
-                            <span>Upload</span>
-                            <input id="filePhoto" onchange="uploadImage(this)" type="file" />
-                        </div>
-                    </div>
-                </div>
+        <!-- header and button class -->
+        <a class="btn-floating btn-large waves-effect waves-light red " style="float:right;"><i class="material-icons dp48">info</i></a>
 
+        <div class="header_wrapper center-align">
 
-     <div class="container"> 
-  
-
-
-        <br><br>
-
-        <div id="result_values" class="result_values row">
-            <div class="result_label col l4 m4 s1">
-                <div id="stubble_box" class="color-box"></div>
-                    <label class="result_text">Stubble :</label><label id="stubble_label"  class="result_text result_text_mini_screen"></label></div>
-            <div class="result_label col l4 m4 s1">
-                <div id="soil_box" class="color-box"></div>
-                    <label class="result_text">Soil :</label><label id="soil_label"  class="result_text result_text_mini_screen"></label></div>
-            <div class="result_label col l4 m4 s1">
-                <div id="canopy_box" class="color-box"></div>
-                    <label  class="result_text">Canopy :</label><label id="canopy_label"  class="result_text result_text_mini_screen"></label></div>
-        </div>
-        
         <div class="row">
+            <h1 id="heading" ><i>SRPNet</i></h1>
+        <p class="job-view"> Web app quanitying soil, plant, and residue cover using convolutional neural networks </p>
+        </div>
+            <div class = "row file-field input-field ">
+                <div id="upload_btn_wrapper_div" class = "btn center-align">
+                    <span>Upload</span>
+                    <input id="filePhoto" onchange="uploadImage(this)" type="file" />
+                </div>
+            </div>
+        </div>
+
+        <div class="container"> 
+
+            <br><br>
+            <div id="result_values" class="result_values row">
+                <div class="result_label col l4 m4 s1">
+                    <div id="stubble_box" class="color-box"></div>
+                        <label class="result_text">Stubble :</label><label id="stubble_label"  class="result_text result_text_mini_screen"></label></div>
+                <div class="result_label col l4 m4 s1">
+                    <div id="soil_box" class="color-box"></div>
+                        <label class="result_text">Soil :</label><label id="soil_label"  class="result_text result_text_mini_screen"></label></div>
+                <div class="result_label col l4 m4 s1">
+                    <div id="canopy_box" class="color-box"></div>
+                        <label  class="result_text">Canopy :</label><label id="canopy_label"  class="result_text result_text_mini_screen"></label></div>
+            </div>
             
-            <!-- original image colomn -->
-            <div class="col l6 m12 s12"> 
-                <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" />
-                <a  id="download_original_image" download="original_capture.png" href="data:image/png;base64,asdasd...">Download original image</a>
+            <div class="row">
+                <!-- original image colomn -->
+                <div class="col l6 m12 s12"> 
+                    <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" />
+                    <a  id="download_original_image" download="original_capture.png" href="data:image/png;base64,asdasd...">Download original image</a>
+                </div>
+                <!-- classified image coloumn-->
+                <div id="result_div" class="col l6 m12 s12"> 
+                    <a  id="download_predicted_image" download="prediction.png" href="data:image/png;base64,asdasd...">Download predicted image</a>
+                </div>
             </div>
 
-            <!-- classified image coloumn-->
-            <div id="result_div" class="col l6 m12 s12"> 
-                <a  id="download_predicted_image" download="prediction.png" href="data:image/png;base64,asdasd...">Download predicted image</a>
-            </div>
-          </div>
-        
-           
-        
-   </div> 
- <!--  <button type="button" onclick="downloadSomething()">Download original image</button> -->
-   </body>
+        </div> <!-- END div-container -->
+    </body>
 
     <script src="./classifier_attempt.js"></script>
 
