@@ -13,7 +13,13 @@ async function initialize() {
     document.getElementById("download_original_image").style.display= "none";
     document.getElementById("download_predicted_image").style.display= "none";
 
+
  })();
+
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, options);
+  });
 
 
  async function uploadImage(input) {

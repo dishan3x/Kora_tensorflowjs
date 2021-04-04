@@ -1,5 +1,5 @@
 # Soil cover classifier 
-This github repository is dedicated in experiment on tensorflow js on a simple html environment.
+This github repository is dedicated in using tensorflow js to load a deep learning model html environment.
 
 
 Website :  https://dishan3x.github.io/SRPNet/
