@@ -13,13 +13,25 @@ async function initialize() {
     document.getElementById("download_original_image").style.display= "none";
     document.getElementById("download_predicted_image").style.display= "none";
 
+ 
 
  })();
 
- document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems, options);
-  });
+/*  const btn = document.querySelector('.btn'); */
+
+/*  document.addEventListener('open-model', function() {
+     const elem = document.getElementById('modal id here');
+    const instance = M.Modal.init(elem, {dismissible: false});
+    instance.open()
+
+  });   */
+
+  function modal_open_function(){
+      
+    const elem = document.getElementById('modal1');
+    const instance = M.Modal.init(elem, {dismissible: false});
+    instance.open();
+  }
 
 
  async function uploadImage(input) {

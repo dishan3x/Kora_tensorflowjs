@@ -9,17 +9,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SRPNet</title>
     <link rel="stylesheet" href="css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/fontawesome/all.css" />
     <!-- <link type="text/css"  href="css/custom_css.css/" /> -->
+   
     <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>-->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.3.0/dist/tf.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
-   <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-  <!--<script src="https://cdn.jsdelivr.net/gh/jrichardsz/log4browser@master/log4browser.min.js"></script>-->
-
-    
-
+ 
 </head>
 
 <style>
@@ -118,7 +116,7 @@
 <body>
 
         <!-- header and button class -->
-        <a class="btn-floating btn-large waves-effect waves-light red " style="float:right;"><i class="material-icons dp48">info</i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red " style="float:right;" onclick="modal_open_function()"><i class="material-icons dp48">info</i></a>
 
         <div class="header_wrapper center-align">
 
@@ -140,7 +138,7 @@
             <div id="result_values" class="result_values row">
                 <div class="result_label col l4 m4 s1">
                     <div id="stubble_box" class="color-box"></div>
-                        <label class="result_text">Stubble :</label><label id="stubble_label"  class="result_text result_text_mini_screen"></label></div>
+                        <label class="result_text">Residue :</label><label id="stubble_label"  class="result_text result_text_mini_screen"></label></div>
                 <div class="result_label col l4 m4 s1">
                     <div id="soil_box" class="color-box"></div>
                         <label class="result_text">Soil :</label><label id="soil_label"  class="result_text result_text_mini_screen"></label></div>
@@ -164,6 +162,20 @@
 
    
 
+     
+
+
+
+          
+
+
+  <!-- Modal Trigger -->
+  <button data-target="modal1" id="open-model" onclick="modal_open_function()" class="btn modal-trigger">Modal</button>
+          
+
+
+        </div> <!-- END div-container -->
+    </body>
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
@@ -174,16 +186,6 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
-         
-
-  <!-- Modal Trigger -->
-  <button data-target="modal1" class="btn modal-trigger">Modal</button>
-          
-
-
-        </div> <!-- END div-container -->
-    </body>
-
      
     <script src="./classifier_attempt.js"></script>
 
