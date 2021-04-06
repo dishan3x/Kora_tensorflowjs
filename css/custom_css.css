@@ -92,6 +92,8 @@ nav ul li a{
     #previewHolder, #result_image{
         width:100%;
     }
-   
+    nav a {
+        color: #000 !important;
+    }
 
 }
