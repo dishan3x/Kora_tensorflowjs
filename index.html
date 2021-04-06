@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,126 +11,34 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/fontawesome/all.css" />
-    <!-- <link type="text/css"  href="css/custom_css.css/" /> -->
+    <link rel="stylesheet" href="css/custom_css.css" />
    
     <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>-->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.3.0/dist/tf.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
  
 </head>
 
-<style>
-.result_text{
-    font-size: calc(3vw) !important;
-}
-
-.color-box {
-    width: 5px;
-    height: 3vw;
-    display: inline-block;
-    left: 5px;
-    margin-right: 10px;
-    top: 5px;
-    border-style: solid;
-    border: thin;
-}
-
-#stubble_box{
-    background-color: yellow;
-    
-}
-
-#soil_box{
-    background-color: brown;
-    
-}
-
-#canopy_box{
-    background-color: green;
-
-}
-
-#upload_btn_wrapper_div{
-    float:none;
-}
-
- .result_div{
-    display: table;
-}
- 
-#result_image{
-    display: table-header-group;
-}
-
-#download_predicted_image{
-    display: table-footer-group;
-}
-
-/* small devices */
-@media ( max-width: 600px) {
-    .result_text{ 
-         font-size:calc(20px + 3vw) !important; 
-        text-align: center !important;
-    }
-
-    #result_values{
-        display:grid !important;
-    }
-/*     #navbar-toggler{
-        float: right;
-    } */
-
-    .result_label {
-        display:inline;
-    }
-   .row .col.s1 {
-     width: 100%;
-    margin-left: initial;
-    } 
-
-    .result_text_mini_screen {
-        display: block; 
-        font-size:calc(30px + 5vw) !important; 
-    }
-
-    .color-box {
-    width: 5px;
-    height: 6vw;
-    /*  display: inline-block;  */
-    left: 5px;
-    margin-right: 10px;
-    top: 5px;
-    border-style: solid;
-    border: thin;
-    }
-
-    #previewHolder, #result_image{
-        width:100%;
-    }
-   
-
-}
- </style>
 
 <body>
 
-        <nav class="white">
-           <!--  <div class="nav-wrapper"> -->
+    <nav class="white navbar-transition cool-navbar z-depth-0 text-darken-1" >
+            <div class="nav-wrapper" style="color:black ! important;"> 
             <!-- header and button class -->
-             
              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="https://github.com/dishan3x/SRPNet">Github</a></li>
-                <li><a class="btn-floating btn-large waves-effect waves-light" onclick="modal_open_function()"><i class="material-icons ">info_outline</i></a></li>
+                <li><a href="https://github.com/dishan3x/SRPNet">GitHub</a></li>
+                <!-- <li><a class="btn-floating btn-large waves-effect waves-light" onclick="modalInfo()"><i class="material-icons ">info</i> info</a></li> -->
+                <li><a onclick="modalInfo()">How to use it</a></li>
+                <li><a onclick="modalAbout()">About</a></li>
               </ul>
 
-           <!--  </div> -->
+            </div> 
         </nav>
       
         <div class="header_wrapper center-align">
 
         <div class="row">
-            <h1 id="heading" ><i>SRPNet</i></h1>
+            <h1 id="heading" ><B>SRP</B>Net</h1>
         <p class="job-view"> Web app quanitying soil, plant, and residue cover using convolutional neural networks </p>
         </div>
             <div class = "row file-field input-field ">
@@ -147,14 +54,14 @@
             <br><br>
             <div id="result_values" class="result_values row">
                 <div class="result_label col l4 m4 s1">
-                    <div id="stubble_box" class="color-box"></div>
-                        <label class="result_text">Residue :</label><label id="stubble_label"  class="result_text result_text_mini_screen"></label></div>
-                <div class="result_label col l4 m4 s1">
                     <div id="soil_box" class="color-box"></div>
-                        <label class="result_text">Soil :</label><label id="soil_label"  class="result_text result_text_mini_screen"></label></div>
+                    <label class="result_text">Soil :</label><label id="soil_label"  class="result_text result_text_mini_screen"></label></div>
+              <div class="result_label col l4 m4 s1">
+                    <div id="stubble_box" class="color-box"></div>
+                    <label class="result_text">Residue :</label><label id="stubble_label"  class="result_text result_text_mini_screen"></label></div>
                 <div class="result_label col l4 m4 s1">
                     <div id="canopy_box" class="color-box"></div>
-                        <label  class="result_text">Canopy :</label><label id="canopy_label"  class="result_text result_text_mini_screen"></label></div>
+                    <label  class="result_text">Plant :</label><label id="canopy_label"  class="result_text result_text_mini_screen"></label></div>
             </div>
             
             <div class="row">
@@ -168,26 +75,12 @@
                     <a  id="download_predicted_image" download="prediction.png" href="data:image/png;base64,asdasd...">Download predicted image</a>
                 </div>
             </div>
-
-
-   
-
-     
-
-
-
-          
-
-
-  <!-- Modal Trigger -->
- <!--  <button data-target="modal1" id="open-model" onclick="modal_open_function()" class="btn modal-trigger">Modal</button> -->
-          
-
-
         </div> <!-- END div-container -->
     </body>
+
+
   <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+  <div id="modal_info" class="modal">
     <div class="modal-content">
       <h4>Instructions</h4>
       <p>1 . Take an image
@@ -209,6 +102,23 @@
     </div>
   </div>
      
+    <!-- Modal Structure -->
+    <div id="modal_about" class="modal">
+        <div class="modal-content">
+          <h4>About the application</h4>
+          <p> This application is an application which quantify the soil cover using semeantic segmentation.
+              The application utilize a The Seg (semantic segmentation) Net (Network) architecture is an encoder-decoder based architecture
+              model which vastly used in area of bio-m </p>
+             <img src="input_images/Segnet_strcutture_About_modal.png" alt="SegNet" height="80%" width="95%" /> 
+            <br><br>
+            <p></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+
     <script src="./classifier_attempt.js"></script>
 
 

@@ -26,12 +26,20 @@ async function initialize() {
 
   });   */
 
-  function modal_open_function(){
+  function modalInfo(){
       
-    const elem = document.getElementById('modal1');
+    const elem = document.getElementById('modal_info');
     const instance = M.Modal.init(elem, {dismissible: false});
     instance.open();
   }
+
+  function modalAbout(){
+      
+    const elem = document.getElementById('modal_about');
+    const instance = M.Modal.init(elem, {dismissible: false});
+    instance.open();
+  }
+
 
 
  async function uploadImage(input) {
