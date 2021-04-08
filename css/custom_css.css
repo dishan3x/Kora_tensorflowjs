@@ -1,5 +1,5 @@
 .result_text{
-    font-size: calc(3vw) !important;
+    font-size: calc(2.5vw) !important;
 }
 
 .color-box {
@@ -39,6 +39,7 @@
 #result_image{
     display: table-header-group;
 }
+
 
 #download_predicted_image{
     display: table-footer-group;
