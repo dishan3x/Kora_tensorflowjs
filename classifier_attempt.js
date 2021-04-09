@@ -55,7 +55,7 @@ async function initialize() {
 
         // Triggers the onload 
         reader.readAsDataURL(input.files[0]);
-        // triger the predict function after the image loaded
+        // trigger the predict function after the image loaded
         reader.onloadend = () => predict(); 
     } else {
         alert('select a file to see preview');
